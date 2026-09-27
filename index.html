@@ -113,18 +113,18 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 18px;
       }
-      figure {
+      figure.photo {
         position: relative;
         aspect-ratio: 3/4;
         border-radius: 2px;
         overflow: hidden;
       }
-      figure img {
+      figure.photo img {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
-      figcaption {
+      figure.photo  figcaption {
         position: absolute;
         left: 0;
         right: 0;
@@ -312,6 +312,7 @@
         <nav>
           <a href="#work">Work</a>
           <a href="#films">Films</a>
+          <a href="#music">Music</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -325,23 +326,23 @@
           <span>2021 — 2026</span>
         </div>
         <div class="grid">
-          <figure class="p1">
+          <figure class="photo p1">
             <img src="images/PXL_20260913_230029314.jpg" alt="" />
             <figcaption>Horse bonding with a little girl</figcaption>
           </figure>
-          <figure class="p2">
+          <figure class="photo p2">
             <figcaption>Mare and Foal, Blue Hour</figcaption>
           </figure>
-          <figure class="p3">
+          <figure class="photo p3">
             <figcaption>Full Gallop, Open Pasture</figcaption>
           </figure>
-          <figure class="p4">
+          <figure class="photo p4">
             <figcaption>Winter Coat, Frosted Field</figcaption>
           </figure>
-          <figure class="p5">
+          <figure class="photo p5">
             <figcaption>Portrait, Bay Mare</figcaption>
           </figure>
-          <figure class="p6"><figcaption>Herd at Dusk</figcaption></figure>
+          <figure class="photo p6"><figcaption>Herd at Dusk</figcaption></figure>
         </div>
       </div>
     </section>
@@ -370,6 +371,22 @@
                 >5:20 · Barn and paddock</span
               >
             </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="music">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Music</h2>
+        </div>
+        <div class="audio">
+          <figure>
+            <audio controls src="audio/Sad_Hop_Bot__Bright__Jan_23_2026_456_PM.m4a">
+              Your browser does not support the audio element.
+            </audio>
+            <figcaption>Some music I made</figcaption>
           </figure>
         </div>
       </div>

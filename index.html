@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Rose — Photography</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #0e211d;
+        --paper: #eef1ea;
+        --teal: #12403c;
+        --sea: #2f6f8e;
+        --moss: #4f7a5c;
+        --line: rgba(14, 33, 29, 0.15);
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      * {
+        box-sizing: inherit;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-padding-top: env(safe-area-inset-top, 0px);
+      }
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Inter", sans-serif;
+        line-height: 1.5;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Fraunces", serif;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+      }
+      a {
+        color: inherit;
+      }
+      .wrap {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+
+      header {
+        padding: 96px 0 64px;
+        border-bottom: 1px solid var(--line);
+      }
+      header .wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+      .name {
+        font-size: clamp(2.4rem, 6vw, 4rem);
+        line-height: 1.02;
+      }
+      .tag {
+        font-size: 1.05rem;
+        max-width: 46ch;
+        color: var(--teal);
+      }
+      nav {
+        display: flex;
+        gap: 28px;
+        font-size: 0.92rem;
+        margin-top: 8px;
+      }
+      nav a {
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        padding-bottom: 2px;
+      }
+      nav a:hover,
+      nav a:focus-visible {
+        border-color: currentColor;
+      }
+
+      section {
+        padding: 64px 0;
+      }
+      section + section {
+        border-top: 1px solid var(--line);
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 20px;
+        margin-bottom: 32px;
+      }
+      .section-head h2 {
+        font-size: 1.6rem;
+      }
+      .section-head span {
+        font-size: 0.85rem;
+        color: var(--sea);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      figure {
+        position: relative;
+        aspect-ratio: 4/5;
+        border-radius: 2px;
+        overflow: hidden;
+      }
+      figcaption {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 14px 16px;
+        font-size: 0.85rem;
+        color: #eef1ea;
+        background: linear-gradient(
+          to top,
+          rgba(10, 20, 18, 0.75),
+          transparent
+        );
+      }
+      .p1 {
+        background: linear-gradient(160deg, #1a4d47 0%, #2f6f8e 100%);
+      }
+      .p2 {
+        background: linear-gradient(
+          200deg,
+          #0e211d 0%,
+          #4f7a5c 60%,
+          #2f6f8e 100%
+        );
+      }
+      .p3 {
+        background: linear-gradient(140deg, #2f6f8e 0%, #12403c 100%);
+      }
+      .p4 {
+        background: linear-gradient(180deg, #4f7a5c 0%, #0e211d 100%);
+      }
+      .p5 {
+        background: linear-gradient(
+          120deg,
+          #12403c 0%,
+          #2f6f8e 50%,
+          #4f7a5c 100%
+        );
+      }
+      .p6 {
+        background: linear-gradient(200deg, #2f6f8e 0%, #0e211d 100%);
+      }
+
+      .videos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+      }
+      .video-card {
+        position: relative;
+        aspect-ratio: 16/9;
+        border-radius: 2px;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+      }
+      .video-card figcaption {
+        position: static;
+        background: none;
+        padding: 16px;
+      }
+      .video-card .runtime {
+        display: block;
+        font-size: 0.75rem;
+        color: #c7d4d0;
+        margin-top: 2px;
+      }
+      .play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: rgba(238, 241, 234, 0.16);
+        border: 1px solid rgba(238, 241, 234, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .play::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 13px solid #eef1ea;
+        margin-left: 3px;
+      }
+      .v1 {
+        background: linear-gradient(150deg, #12403c 0%, #2f6f8e 100%);
+      }
+      .v2 {
+        background: linear-gradient(
+          210deg,
+          #0e211d 0%,
+          #4f7a5c 70%,
+          #2f6f8e 100%
+        );
+      }
+
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 1.3fr;
+        gap: 48px;
+        align-items: start;
+      }
+      .about p {
+        max-width: 52ch;
+        color: var(--teal);
+        margin-bottom: 14px;
+      }
+      .stats {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        font-size: 0.9rem;
+      }
+      .stats div {
+        border-top: 1px solid var(--line);
+        padding-top: 10px;
+      }
+      .stats strong {
+        display: block;
+        font-family: "Fraunces", serif;
+        font-size: 1.3rem;
+        font-weight: 500;
+      }
+
+      footer {
+        padding: 56px 0 88px;
+      }
+      footer .wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .contact-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        font-size: 0.95rem;
+      }
+      .contact-row a {
+        text-decoration: underline;
+        text-decoration-color: var(--line);
+        text-underline-offset: 4px;
+      }
+
+      @media (max-width: 720px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .about {
+          grid-template-columns: 1fr;
+        }
+        header {
+          padding: 72px 0 48px;
+        }
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        figure {
+          transition: transform 0.4s ease;
+        }
+        figure:hover {
+          transform: translateY(-3px);
+        }
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--sea);
+        outline-offset: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <h1 class="name">Rose</h1>
+        <p class="tag">
+          Equestrian and pasture photography — horses at rest, in motion, and in
+          the quiet hours between.
+        </p>
+        <nav>
+          <a href="#work">Work</a>
+          <a href="#films">Films</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Selected work</h2>
+          <span>2021 — 2026</span>
+        </div>
+        <div class="grid">
+          <figure class="p1">
+            <figcaption>Grazing at First Light</figcaption>
+          </figure>
+          <figure class="p2">
+            <figcaption>Mare and Foal, Blue Hour</figcaption>
+          </figure>
+          <figure class="p3">
+            <figcaption>Full Gallop, Open Pasture</figcaption>
+          </figure>
+          <figure class="p4">
+            <figcaption>Winter Coat, Frosted Field</figcaption>
+          </figure>
+          <figure class="p5">
+            <figcaption>Portrait, Bay Mare</figcaption>
+          </figure>
+          <figure class="p6"><figcaption>Herd at Dusk</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="films">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Films</h2>
+          <span>Short form</span>
+        </div>
+        <div class="videos">
+          <figure class="video-card v1">
+            <span class="play" aria-hidden="true"></span>
+            <figcaption>
+              Loose in the Field<span class="runtime"
+                >3:58 · Spring pasture</span
+              >
+            </figcaption>
+          </figure>
+          <figure class="video-card v2">
+            <span class="play" aria-hidden="true"></span>
+            <figcaption>
+              Morning Routine<span class="runtime"
+                >5:20 · Barn and paddock</span
+              >
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about">
+        <div>
+          <h2>About</h2>
+          <p>
+            I've spent the last six years photographing horses on the same
+            handful of farms — the light at feeding time, the stillness before a
+            ride, the moment a herd breaks into a run.
+          </p>
+          <p>
+            Prints are made on archival cotton rag paper, available in three
+            sizes on request.
+          </p>
+        </div>
+        <div class="stats">
+          <div><strong>40+</strong>gallery and publication features</div>
+          <div>
+            <strong>6</strong>years photographing the same farms and herds
+          </div>
+          <div><strong>12</strong>limited edition print runs</div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div class="wrap">
+        <h2>Get in touch</h2>
+        <div class="contact-row">
+          <a href="mailto:hello@rosephoto.com">hello@rosephoto.com</a>
+          <a href="#">Instagram</a>
+          <a href="#">Print shop</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

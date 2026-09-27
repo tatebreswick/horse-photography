@@ -115,9 +115,14 @@
       }
       figure {
         position: relative;
-        aspect-ratio: 4/5;
+        aspect-ratio: 3/4;
         border-radius: 2px;
         overflow: hidden;
+      }
+      figure img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
       figcaption {
         position: absolute;
@@ -321,7 +326,8 @@
         </div>
         <div class="grid">
           <figure class="p1">
-            <figcaption>Grazing at First Light</figcaption>
+            <img src="images/PXL_20260913_230029314.jpg" alt="" />
+            <figcaption>Horse bonding with a little girl</figcaption>
           </figure>
           <figure class="p2">
             <figcaption>Mare and Foal, Blue Hour</figcaption>
@@ -348,12 +354,14 @@
         </div>
         <div class="videos">
           <figure class="video-card v1">
-            <span class="play" aria-hidden="true"></span>
-            <figcaption>
-              Loose in the Field<span class="runtime"
-                >3:58 · Spring pasture</span
-              >
-            </figcaption>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/tQFnIiY0MpY"
+              title="YouTube video player"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
           </figure>
           <figure class="video-card v2">
             <span class="play" aria-hidden="true"></span>
